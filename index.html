@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="lr.sk">
+		<link rel="icon" href="images/favicon.ico">
+
+		<title>Giroservice.by</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/main2.css" rel="stylesheet">
+		<link href="css/lightbox.css" rel="stylesheet">
+		<link href="css/owl.carousel.min.css" rel="stylesheet">
+		<link href="css/owl.theme.default.min.css" rel="stylesheet">
+		<link href="css/owl.theme.css" rel="stylesheet">
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+			    $("#callback-form").submit(function() {
+		            var form_data = $(this).serialize();
+		            $.ajax({
+		            type: "POST", 
+		            async:false, 
+		            url: "send.php", 
+		            data: form_data,
+		            success: function() {
+		                   alert("Ваше сообщение отправлено!");
+		                }
+		            });
+			    });
+
+			    $("#form-order").submit(function() {
+		            var form_data = $(this).serialize();
+		            $.ajax({
+		            type: "POST",
+		            async:false, 
+		            url: "order-form.php", 
+		            data: form_data,
+		            success: function() {
+		                   alert("Ваше сообщение отправлено!");
+		                }
+		            });
+			    });
+			}); 
+		</script>
+
+		<!-- Yandex.Metrika counter -->
+		<script type="text/javascript" >
+		    (function (d, w, c) {
+		        (w[c] = w[c] || []).push(function() {
+		            try {
+		                w.yaCounter48422192 = new Ya.Metrika({
+		                    id:48422192,
+		                    clickmap:true,
+		                    trackLinks:true,
+		                    accurateTrackBounce:true
+		                });
+		            } catch(e) { }
+		        });
+
+		        var n = d.getElementsByTagName("script")[0],
+		            s = d.createElement("script"),
+		            f = function () { n.parentNode.insertBefore(s, n); };
+		        s.type = "text/javascript";
+		        s.async = true;
+		        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+		        if (w.opera == "[object Opera]") {
+		            d.addEventListener("DOMContentLoaded", f, false);
+		        } else { f(); }
+		    })(document, window, "yandex_metrika_callbacks");
+		</script>
+		<noscript><div><img src="https://mc.yandex.ru/watch/48422192" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+		<!-- /Yandex.Metrika counter -->
+
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105051108-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-105051108-1');
+
+		  gtag('set', {'user_id': 'USER_ID'}); // Задание идентификатора пользователя с помощью параметра user_id (текущий пользователь).
+		</script>
+
+
+
+
+	</head>
+
+	<body data-spy="scroll" data-target="#main-nav">
+
+		<div id="callback" class="modal fade contact-form text-center">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+				        <h5 class="modal-title" id="replacement-price-label">Заказать звонок</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+					</div>
+					<div class="modal-body">
+						<p>Оставьте свой телефон и мы перезвоним в удобное для Вас время!</p>
+						<form id="callback-form" method="post">
+								<input type="text" name="name" placeholder="Имя" required="required">
+								<input type="text" name="phone" placeholder="Телефон" required="required">
+								<select name="time">
+									<option value="Не выбрано">--Выберите время--</option>
+									<option value="10-12">10.00-12.00</option>
+									<option value="13-15">13.00-15.00</option>
+									<option value="16-18">16.00-18.00</option>
+									<option value="19-21">19.00-21.00</option>
+								</select>
+								<input  type="submit" class="btn btn-default bright-button form-button">
+								<button type="button" class="btn btn-secondary form-button" data-dismiss="modal">Закрыть</button>
+						</form>				
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="order-form" class="modal fade contact-form text-center">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="modal-title">Оставить заявку</div>
+					</div>
+					<div class="modal-body">
+						<p>Оставьте нам сообщение и контактные данные и мы ответим Вам в ближайшее время!</p>
+						<form id="form-order" method="post">
+
+							<input type="text" name="name" placeholder="Имя" required="required">
+
+							<input type="text" name="phone" placeholder="Телефон" required="required">
+							<input type="email" placeholder="Email (необязательно)" name="email">
+
+							<select name="device">
+								<option value="не выбрано">--Тип устройства (необязательно)--</option>
+								<option value="гироскутер">гироскутер</option>
+								<option value="моноколесо">моноколесо</option>
+								<option value="электросамокат">электросамокат</option>
+								<option value="другое">другое</option>
+							</select>
+
+							<textarea name="message" placeholder="Cообщение" rows="4"></textarea>
+
+							<input type="submit" class="btn btn-default bright-button form-button">
+							<button type="button" class="btn btn-secondary form-button" data-dismiss="modal">Закрыть</button>
+						</form>				
+					</div>			
+				</div>
+			</div>
+		</div>
+
+
+		<section id="main">
+					
+			<nav id="main-nav" class="navbar navbar-expand-lg navbar-light">
+				<a href="#" class="navbar-brand"><img src="images/logo.png" alt=""><span class="d-none d-sm-inline-block">GiroService.by</span></a>
+				
+				<button id="main-nav-list-toggler" class="navbar-toggler align-self-end" type="button"  data-toggle="collapse" data-target="#main-nav-list" aria-controls="main-nav" aria-expanded="false" aria-label="toggle navigation">
+					<span class="sr-only">Открыть навигацию</span>
+					<span class="icon-menu"></span>
+				</button>
+				
+				<div class="collapse navbar-collapse justify-content-end" id="main-nav-list" role="navigation">
+					<ul class="navbar-nav" role="tablist">
+						<li class="nav-item"><a class="nav-link active" href="#main">главная</a></li>
+						<li class="nav-item"><a class="nav-link" href="#service-items">услуги</a></li>
+						<li class="nav-item"><a class="nav-link" href="#feautures">о нас</a></li>
+						<li class="nav-item"><a class="nav-link" href="#photogallery">фото</a></li>
+						<li class="nav-item"><a class="nav-link" href="#price">цены</a></li>
+						<li class="nav-item"><a class="nav-link" href="#reviews">отзывы</a></li>
+						<li class="nav-item"><a class="nav-link" href="#blog">статьи</a></li>
+						<li class="nav-item"><a class="nav-link" href="#contact-info">контакты</a></li>
+					</ul>
+				</div>
+				<!-- main-nav-list end -->
+			</nav>
+			<!-- main nav end -->
+				
+			<div class="container-fluid">
+				<div class="row">
+					<div id="main-content" class="col-lg-9 col-sm-8 col-11">
+						<h1 id="main-title">
+							РЕМОНТ РАЗЛИЧНОГО ЭЛЕКТРОТРАНСПОРТА:<br><br>ГИРОСКУТЕРОВ<br>ЭЛЕКТРОСАМОКАТОВ<br>МОНОКОЛЕС<br><br>В КРАТЧАЙШИЕ СРОКИ<br>
+						</h1><br>
+						<h3 id="main-title-sub">
+							СЕРВИСНЫЙ ЦЕНТР GIROSERVICE.BY — РЕМОНТ ЭЛЕКТРОТРАНСПОРТА В МИНСКЕ И РБ
+						</h3>
+					</div>
+					<!-- main-content end -->
+					<div id="main-contacts-toggler" class="d-flex d-sm-none col-1 close-block">
+						<p>контакты</p>
+						<i id="chevron" class="icon-left-open d-inline-flex d-sm-none"></i>
+<!-- 						<i id="chevron" class="icon-left-open d-block d-sm-none"></i> -->
+					</div>
+					<div id="main-contacts" class="col-lg-3 col-sm-4 col-12">
+						
+						<ul id="main-contacts-list" class="nav-pills nav-fill text-left">
+							<li><i class="icon-phone"></i>+375 (44) 589 55 59</li>
+							<li><i class="icon-phone"></i>375 (29) 779 77 75</li>
+							<li><i class="icon-mail-alt"></i>info@giroservice.by</li>
+							<li><i class="icon-location"></i>Минск, ул.&nbsp;Ваупшасова&nbsp;10 <br> цокольный этаж, пом. 15</li>
+							<li><i class="icon-clock"></i><span class="hl">ПН&nbsp;-&nbsp;ПТ</span>&nbsp;—&nbsp;11&nbsp;-&nbsp;19, <span class="hl">СБ</span>&nbsp;—&nbsp;11&nbsp;-&nbsp;17, <span class="hl">ВС</span>&nbsp;—&nbsp;Выходной</li>
+						</ul>
+					</div>
+					<!-- main-contacts end -->
+					<div id="main-button" class="col-12">
+						<a href="#callback" role="button" class="btn btn-lg bright-button" data-toggle="modal">Заказать звонок</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- main end -->
+
+		<section class="container content-block">
+			<div class="row">
+				<div class="col-12">
+					<div id="news" class="carousel slide" data-ride="carousel">
+					  <div class="carousel-inner">
+					    <div class="carousel-item active">
+					      <p class="title">Приведи друга и получи скидку на ремонт!</p>
+					    </div>
+					    <div class="carousel-item">
+					      <p class="title">Теперь в нашей мастерской производится ремонт <br>различного электротранспорта!</p>
+					    </div>
+					    <div class="carousel-item">
+					      <p class="title">Скоро открытие нового cервисного центра!</p>
+					    </div>
+					  </div>
+					  <a class="carousel-control-prev" href="#news" role="button" data-slide="prev">
+					    <i class="icon-left-open"></i>
+						<span class="sr-only">Previous</span>
+					  </a>
+					  <a class="carousel-control-next" href="#news" role="button" data-slide="next">
+					    <i class="icon-right-open"></i>
+					    <span class="sr-only">Next</span>
+					  </a>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<section id="service-items" class="container content-block">
+			<div class="row">
+				<div class="col-12 mb-5">
+					<h1 class="title-section">наши услуги</h1>
+				</div>
+				<div class="col-lg-4 col-12 service-item">
+					<h5 class="title">диагностика<br>устройства</h5>
+					<p class="text-justify mb-3">Наши высококласнные специалисты проведут тщательную диагностику вашего устройства, а при необходимости отремонтируют неисправные детали или произведут их замену, после согласования</p>
+				</div> 
+				<div class="col-lg-4 col-12 service-item">
+					<h5 class="title">гарантийный<br>ремонт</h5>
+					<p class="text-justify mb-3">Сервисный центр Giroservice.by осуществляет бесплатный гарантийный ремонт устройств, приобретенных в магазинах партнеров</p>
+				</div>
+				<div class="col-lg-4 col-12 service-item">
+					<h5 class="title">негарантийный<br>ремонт</h5>
+					<p class="text-justify mb-3">Также осуществляем ремонт на платной основе, если гарантийный срок завершился, неисправность не является гарантийным случаем или устройство было приобретено без гарантии</p>
+				</div>
+				<div class="mx-auto"><a href="#order-form" role="button" class="btn btn-default btn-lg bright-button" data-toggle="modal">Оставить заявку</a></div>
+			</div>
+		</section>
+		<!-- service-items end -->
+		
+		<hr class="block-hr"/>
+
+
+		<section id="diagnostics" class="container-fluid content-block">
+			<div class="row">
+				<div class="col-12 d-sm-none"><h5 class="title-section">диагностика</h5></div>
+				<div class="col-sm-3 d-none d-sm-block title-section-block">
+					<h5 class="title-side-vertical">диагностика</h5>
+					<i class="icon-search title-side-icon"></i>
+				</div>
+				<div class="offset-md-1 col-sm-8 col-12">
+					<h5 class="title text-sm-left">В УСЛУГУ ВХОДИТ</h5>
+					<ul>
+						<li>Полная разборка устройства для проведения тщательной диагностики</li>
+						<li>Проверка проводки на наличие деффектов</li>
+						<li>Тестирование аккумулятора</li>
+						<li>Тестирование материнской платы</li>
+						<li>Тестирование гироскопов</li>
+						<li>Проверка всей индексации</li>
+						<li>Проверка мотор-колес и их датчиков</li>
+						<li>Аккуратная сборка</li>
+						<li>Калибровка</li>
+						<li>Оформление диагностического листа</li>
+					</ul>
+					<p>Результатом диагностики является анализ неисправности, заключение мастера по перечню необходимых работ и запчастей для нормальной работы устройства</p>
+							
+					<h5 class="title text-sm-left">СТОИМОСТЬ</h5>
+					<p>Стоимость услуги - от 10 рублей</p>
+					<h5 class="title text-sm-left">ЧТО НУЖНО</h5>
+					<p>Для проведения диагностики Вашего устройства необходимо предоставить его в сервисый центр вместе с зарядным устройством. Зарядное устройство мы тоже проверим и при необходимости зарядим Ваше устройство после ремонта</p>
+					<h5 class="title text-sm-left">СРОК ПРОВЕДЕНИЯ</h5>
+					<p>Длительность диагностики зависит от неисправности, чаще всего не превышает одного дня</p>
+				</div>
+				<div class="mx-auto"><a href="#order-form" role="button" class="btn btn-default btn-lg bright-button" data-toggle="modal">Заказать диагностику</a></div>
+			</div>
+		</section>
+		<!-- diagnostics end -->
+			
+		<hr class="block-hr"/>
+		
+		<section id="repair" class="container-fluid content-block">
+			<div class="row">
+				<div class="col-12 d-sm-none"><h5 class="title-section">ремонт</h5></div>
+				<div class="col-md-8 col-sm-9 col-12 text-sm-right">
+					<h5 class="title text-sm-right">гарантийный</h5>
+					<p>
+						Сервисный центр <span class="hl">Giroservice.by</span> осуществляет бесплатный гарантийный ремонт устройств, приобретенных в магазинах партнеров<br/>
+						Ремонт производится только после диагностики и при наличии заполненного гарантийного талона.<br/>
+						Всю информация по гарантийному ремонту указана в гарантийном талоне.<br/>
+						ВАЖНО! Сохраняйте документы на устройство в течении всего гарантийного срока.
+					</p>
+					<h5 class="title text-sm-right">НЕГАРАНТИЙНЫЙ</h5>
+					<p>
+						Если гарантийный срок завершился, неисправность не является гарантийным случаем или устройство было приобретено без гарантии, ремонт осуществляется на платной основе в соответствии с прейскурантом (<a href="#price">узнать стоимость</a>). Мы специализируемся на ремонтах любой сложности 
+					</p>
+				</div>				
+				<div class="offset-md-1 col-sm-3 d-none d-sm-block title-section-block">					
+					<h5 class="title-side-vertical">РЕМОНТ</h5>
+					<i class="icon-cog-alt title-side-icon"></i>
+				</div>
+				<div class="mx-auto"><a href="#order-form" role="button" class="btn btn-default btn-lg bright-button" data-toggle="modal">Оставить заявку</a></div>
+			</div>
+		</section>
+		<!-- repair end -->
+		
+		<hr class="block-hr"/>
+
+		<section id="feautures" class="container content-block">
+			<div class="row">
+				<div class="col-12 mb-5">
+					<h1 class="title-section">почему мы</h1>
+				</div>
+				<div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4 feautures-item">
+					<a>
+						<h5 class="title">ремонт любой<br>сложности</h5>
+						<p class="text-justify">Производим сложный ремонт электроники. Также чиним моторы и рамы. Мы поможем Вам, если мастера других мастерских отказались от ремонта </p>
+					</a>
+				</div>
+				<div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4 feautures-item">
+					<a>
+						<h5 class="title">бережное<br>хранение</h5>
+						<p class="text-justify">При необходимости после ремонта или диагностики оставим Ваше устройство на хранение. Все маркируем чтобы избежать потерь</p>
+					</a>
+				</div>
+				<div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4 feautures-item">
+					<a>
+						<h5 class="title">есть все<br>необходимое</h5>
+						<p class="text-justify">При неизбежной замене деталей, мы используем только оригинальные запчасти, которые заказываем напрямую от производителей. Детали всегда есть в наличии</p>
+					</a>
+				</div>
+				<div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4 feautures-item">
+					<a>
+						<h5 class="title">гарантия<br>на ремонт</h5>
+						<p class="text-justify">Полностью отвечаем за результат своей работы. Мы предоставляем официальную гарантию на выполненные работы и установленные запчасти</p>
+					</a>
+				</div>
+				<div id="" class="col-xl-3 col-lg-4 col-md-6 col-12 d-none d-lg-block d-xl-none text-center feautures-item">
+					<img src="images/logo.png" alt="">
+				</div>
+				<div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4 feautures-item">
+					<a>
+						<h5 class="title">опытные<br>мастера</h5>
+						<p class="text-justify">У нас работают опытные мастера, которые специализируются на электротранспорте различных моделей и производителей</p>
+					</a>
+				</div>
+				<div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4 feautures-item">
+					<a>
+						<h5 class="title">оперативный<br>ремонт</h5>
+						<p class="text-justify">Большинство технических неисправностей устраняем в день обращения</p>
+					</a>
+				</div>
+				<div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4 feautures-item">
+					<a>
+						<h5 class="title">грамотные<br>консультации</h5>
+						<p class="text-justify">Дадим подробную консультацию, расскажем о правилах использования и хранения Вашего устройства</p>
+					</a>
+				</div>
+				<div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4 feautures-item">
+					<a>
+						<h5 class="title">выгодное<br>обслуживание</h5>
+						<p class="text-justify">Предоставляем скидки и специальные предложения постоянным клиентам</p>
+					</a>
+				</div>
+				<div class="mx-auto"><a href="#callback" role="button" class="btn btn-default btn-lg bright-button" data-toggle="modal">Заказать звонок</a></div>
+			</div>
+		</section>
+		<!-- feautures end -->
+
+
+		<section id="how-it-work" class="container content-block">
+			<div class="row">
+				<div class="col-12 section-title-block">
+					<h1 class="title-section">как мы работаем</h1>
+			
+
+					<div class="timeline">
+					  <div class="timeline-container left">
+					    <div class="timeline-content">
+					      <p>Вы привозите нам устройство</p>
+					    </div>
+					  </div>
+					  <div class="timeline-container right">
+					    <div class="timeline-content">
+					      <p>Мы проводим диагностику. Согласовываем с Вами стоимость ремонта и приступаем к работе</p>
+					    </div>
+					  </div>
+					  <div class="timeline-container left">
+					    <div class="timeline-content">
+					      <p>Буквально через несколько дней Вы забираете Ваше усройство</p>
+					    </div>
+					  </div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- how-it-work end -->
+
+
+		<hr class="block-hr"/>
+
+		<section id="photogallery" class="container content-block">
+			<div class="row justify-content-center">
+				<div class="col-12 mb-5">
+					<h1 class="title-section">галлерея</h1>
+				</div>
+
+			    <div class="col-12">
+			    	<div id="gallery" class="owl-carousel owl-theme">
+					    <div class="item"><img src="images/gallery/prev/2.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/4.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/6.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/5.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/8.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/6.png"></div>
+					    <div class="item"><img src="images/gallery/prev/13.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/9.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/7.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/17.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/1.jpg"></div>
+					    <div class="item"><img src="images/gallery/prev/15.jpg"></div>
+					</div>
+			        <!-- <div class="row">
+			            <a href="images/gallery/1.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                <img src="images/gallery/prev/2.jpg" class="img-fluid">
+			            </a>
+			            <a href="images/gallery/2.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			            <a href="images/gallery/3.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			            <a href="images/gallery/4.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			            <a href="images/gallery/5.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			            <a href="images/gallery/6.png" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			            <a href="images/gallery/7.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			            <a href="images/gallery/8.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			            <a href="images/gallery/9.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			            <a href="images/gallery/10.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			            <a href="images/gallery/11.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			            </a>
+			            <a href="images/gallery/12.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+			                
+			            </a>
+			        
+			        </div> -->	                
+		
+			    </div>
+
+
+
+			</div>
+		</section>
+		<!-- photogallery end -->
+
+
+		<hr class="block-hr"/>
+
+		<section id="price" class="container content-block">
+			<div class="row">
+				<div class="col-12 mb-5">
+					<h1 class="title-section">стоимость услуг</h1>
+				</div>
+				<div class="col-lg-4 col-12 price-item">
+					<a class="link-block" href="#diagnostics-price" data-toggle="modal" data-target="#diagnostics-price">
+						<div class="card">
+						  <div class="card-header">
+						    <h6 class="title">диагностика и <br class="d-none d-lg-block">настройка</h6>
+						  </div>
+						  <div class="card-body">
+						    <p class="card-text">Производим настройку Вашего устройства и детальную диагностику</p>
+						    <h5 class="card-title title">от 10 руб</h5>
+						    <div class="arrow"></div>
+						    <p>узнать подробнее</p>
+						  </div>
+						</div>	
+					</a>
+				</div>
+				<div class="col-lg-4 col-12 price-item">
+					<a class="link-block" href="#repair-price" data-toggle="modal" data-target="#repair-price">
+						<div class="card">
+						  <div class="card-header">
+						    <h6 class="title">ремонт <br class="d-none d-lg-block">неисправностей</h6>
+						  </div>
+						  <div class="card-body">
+						    <p class="card-text">Осуществляем ремонт любой сложности</p>
+						    <h5 class="title card-title">от 5 руб</h5>
+						    <div class="arrow"></div>
+						    <p>узнать подробнее</p>
+						  </div>
+						</div>	
+					</a>
+				</div>
+				<div class="col-lg-4 col-12 price-item">
+					<a class="link-block" href="#replacement-price" data-toggle="modal" data-target="#replacement-price">
+						<div class="card">
+						  <div class="card-header">
+						    <h6 class="title">замена <br class="d-none d-lg-block">деталей</h6>
+						  </div>
+						  <div class="card-body">
+						    <p class="card-text">Выполняем замену любых деталей. Ставим только оригинальные запчасти</p>
+						    <h5 class="card-title title">от 10 руб</h5>
+						    <div class="arrow"></div>
+						    <p>узнать подробнее</p>
+						  </div>
+						</div>	
+					</a>
+				</div>
+				<div class="mx-auto"><a href="#callback" role="button" class="btn btn-default btn-lg bright-button" data-toggle="modal">Уточнить стоимость</a></div>
+			</div>
+		</section>
+		<!-- price end -->
+
+
+		<hr class="block-hr"/>
+
+
+		<section id="reviews" class="container-fluid content-block">
+			<div class="row">
+				<div class="col-12 d-sm-none"><h5 class="title-section">Отзывы</h5></div>
+				<div class="col-md-8 col-sm-9 col-12">
+					<div id="reviews-carousel" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<p>
+									<i class="icon-quote-left quote-open"></i><br><br>
+									Отличные ребята! Выявили неисправность и починили мой гироскутер за пару часов. Респект!<br><br>
+									<i class="icon-quote-right quote-close"></i>
+								</p>
+							</div>
+							<div class="carousel-item">
+								<p>
+									<i class="icon-quote-left quote-open"></i><br><br>
+									Замечательный сервис! Провели полную диагностику самоката, подробно рассказали о всех неполадках и устранили их в этот же день! Спасибо мастеру!<br><br>
+									<i class="icon-quote-right quote-close"></i>
+								</p>
+							</div>
+							<div class="carousel-item">
+								
+								<p>
+									<i class="icon-quote-left quote-open"></i><br><br>
+									Оставлял гироскутер на межсезонное хранение. Перед тем как отдать бесплатно все проверили и напомнили правила использования. Сервис на высшем уровне!<br><br>
+									<i class="icon-quote-right quote-close"></i>
+								</p>
+								
+							</div>
+							<div class="carousel-item">
+								
+								<p>
+									<i class="icon-quote-left quote-open"></i><br><br>
+									Ни в одном сервисе не брались за мое моноколесо, опускались руки уже. Но для этих ребят нет ничего невозможного! Конечно пришлось подождать, но они вернули мое устройство к жизни после серьезной поломки. Спасли! Спасибо!<br><br>
+									<i class="icon-quote-right quote-close"></i>
+								</p>
+								
+							</div>
+						
+							<a class="carousel-control-prev" href="#reviews-carousel" role="button" data-slide="prev">
+								<i class="icon-left-open"></i>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#reviews-carousel" role="button" data-slide="next">
+								<i class="icon-right-open"></i>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3 offset-md-1 d-none d-sm-block title-section-block">
+					<h5 class="title-side">отзывы</h5>
+					<i class="icon-quote-left title-side-icon"></i>
+				</div>
+			</div>
+		</section>
+		<!-- reviews end -->
+
+
+		<hr class="block-hr"/>
+
+		<section id="blog" class="container-fluid content-block">
+			<div class="row">
+				<div class="col-12 d-sm-none"><h5 class="title-section">блог</h5></div>
+				<div class="col-sm-3 d-none d-sm-block title-section-block">
+						<h5 class="title-side">блог</h5>
+						<i class="icon-newspaper title-side-icon"></i>
+				</div>
+				
+				<div class="offset-md-1 col-sm-9 col-md-8 col-12">
+					<div id="blog-posts" class="owl-carousel owl-theme">
+						<a class="link-block" href="#article1" data-toggle="modal">
+							<div class="blog-item">
+								<h5 class="title text-left">6 мифов <br>о гироскутерах</h5>
+						    	<div class="arrow"></div>
+								<p>читать</p>
+
+							</div>
+						</a>
+						<a class="link-block" href="#article2" data-toggle="modal">
+							<div class="blog-item">
+								<h5 class="title text-left">При покупке гироскутера</h5>
+						    	<div class="arrow"></div>
+								<p>читать</p>
+							</div>
+						</a>
+						<a class="link-block" href="#article3" data-toggle="modal">
+							<div class="blog-item">
+								<h5 class="title text-left">Какие бывают <br>гироскутеры</h5>
+						    	<div class="arrow"></div>
+								<p>читать</p>
+							</div>
+						</a>
+						<a class="link-block" href="#article4" data-toggle="modal">
+							<div class="blog-item">
+								<h5 class="title text-left">Основные неисправности гироскутеров</h5>
+						    	<div class="arrow"></div>
+								<p>читать</p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+
+
+		</section>
+		<!-- how-it-work end -->
+
+		<hr class="block-hr"/>
+
+		<section id="contact-info" class="content-block mb-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 mb-3">
+						<h1 class="title-section">контакты</h1>
+					</div>
+					<div class="col-sm-6 col-12 text-sm-left">
+						<h5 class="title">giroservice.by</h5>
+						<ul>
+							<li>+375 (44) 589 555 9</li><br>
+							<li>+375 (29) 779 777 5</li><br>
+							<li>+375 (44) 459 00 45</li>
+						</ul>
+						
+					</div>
+					<div class="col-sm-6 col-12 text-sm-left">
+						<h5 class="title">как нас найти</h5>
+						<ul>
+							<li>г. Минск, ул. Ваупшасова 10</li>
+							<li>цокольный этаж, пом. 15</li>
+							<li><span class="hl">ПН-ПТ</span> — 11.00 - 19.00</li>
+							<li><span class="hl">СБ</span> — 11.00 - 17.00</li>
+							<li><span class="hl">ВС</span> — ВЫХОДНОЙ</li>
+						</ul>
+					</div>
+					<div class="mx-auto"><a href="#order-form" role="button" class="btn btn-default btn-lg bright-button" data-toggle="modal">Связаться с нами</a></div>
+				</div>
+			</div>
+			<div id="map" class="container-fluid">
+				<div class="row">
+					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A073dbd758fd0c24e8ec59d2cb7c6da3eeaf07ef3185995e4cdd70d30fac511f4&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+				</div>
+			</div>
+		</section>
+		<!-- contact-info end -->
+
+
+	<!-- 	<footer>
+		<div class="progress" style="height: 5px;">
+		  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+	</footer>
+	 -->
+
+	
+
+		<div id="diagnostics-price" class="modal fade price-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Стоимость настройки и диагностики</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <table>
+		        	<tr>
+		        		<td>Полная диагностика</td>
+		        		<td>от 20 руб.</td>
+		        	</tr>
+		        	<tr>
+		        		<td>Настройка датчика гироскутера</td>
+		        		<td>от 10 руб.</td>
+		        	</tr>
+		        	<tr>
+		        		<td></td>
+		        		<td></td>
+		        	</tr>
+		        </table>
+		      </div>
+		      <div class="modal-footer">
+		        <a href="#order-form" role="button" class="btn btn-default bright-button" data-toggle="modal" data-dismiss="modal">Оставить заявку</a>
+		        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button> -->
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+		<div id="repair-price" class="modal fade price-modal" tabindex="-1" role="dialog" aria-labelledby="repair-price-label" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="repair-price-label">Стоимость ремонта:</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <table>
+		        	<tr>
+						<td>Материнской платы</td>
+						<td>от 50 руб.</td>
+					</tr>
+					<tr>
+						<td>Платы-гироскопа</td>
+						<td>oт 10 до 40 руб.</td>
+					</tr>
+					<tr>
+						<td>Платы Bluetooth-модуля</td>
+						<td>oт 5 до 40 руб.</td>
+					</tr>
+					<tr>
+						<td>Аккумулятора</td>
+						<td>от 90 руб.</td>
+					</tr>
+					<tr>
+						<td>Силовых проводов</td>
+						<td>от 20 руб.</td>
+					</tr>
+					<tr>
+						<td>Зарядного устройства</td>
+						<td>от 25 руб.</td>
+					</tr>
+					<tr>
+						<td>Электроники колеса</td>
+						<td>от 50 до 100 руб.</td>
+					</tr>
+					<tr>
+						<td>Каркасной рамы</td>
+						<td>от 40 до 60 руб.</td>
+					</tr>
+					<tr>
+						<td>Пластикового корпуса</td>
+						<td>от 20 до 80 руб.</td>
+					</tr>
+		        </table>
+		      </div>
+		      <div class="modal-footer">
+		        <a href="#order-form" role="button" class="btn btn-default bright-button" data-toggle="modal" data-dismiss="modal">Оставить заявку</a>
+		        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button> -->
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+		<div id="replacement-price" class="modal fade price-modal" tabindex="-1" role="dialog" aria-labelledby="replacement-price-label" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="replacement-price-label">Стоимость замены:</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <table>
+		        	<tr>
+						<td>Материнской платы</td>
+						<td>от 30 руб.</td>
+					</tr>
+					<tr>
+						<td>Платы-гироскопа</td>
+						<td>от 20 руб.</td>
+					</tr>
+					<tr>
+						<td>Аккумулятора</td>
+						<td>от 15 руб.</td>
+					</tr>
+					<tr>
+						<td>Каркасной рамы</td>
+						<td>от 40 руб.</td>
+					</tr>
+					<tr>
+						<td>Пластикового корпуса</td>
+						<td>от 30 руб.</td>
+					</tr>
+					<tr>
+						<td>Гнезда для зарядного устройства</td>
+						<td>от 10 руб.</td>
+					</tr>
+					<tr>
+						<td>Кнопки включения</td>
+						<td>от 10 руб.</td>
+					</tr>
+					<tr>
+						<td>Замена/установка фары</td>
+						<td>от 10 руб.</td>
+					</tr>
+					<tr>
+						<td>Индикатора батареи</td>
+						<td>от 15 руб.</td>
+					</tr>
+					<tr>
+						<td>Индикатора сенсоров</td>
+						<td>от 15 руб.</td>
+					</tr>
+					<tr>
+						<td>Мотор-колеса</td>
+						<td>от 20 руб.</td>
+					</tr>
+					<tr>
+						<td>Педали</td>
+						<td>от 20 руб.</td>
+					</tr>
+					<tr>
+						<td>Подшипника колеса</td>
+						<td>от 20 руб.</td>
+					</tr>
+					<tr>
+						<td>Камеры/покрышки (10 дюймов)</td>
+						<td>от 20 руб.</td>
+					</tr>
+					<tr>
+						<td>Установка Bluetooth-модуля</td>
+						<td>от 10 руб.</td>
+					</tr>
+		        </table>
+		      </div>
+		      <div class="modal-footer">
+		        <a href="#order-form" role="button" class="btn btn-default bright-button" data-toggle="modal" data-dismiss="modal">Оставить заявку</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+		
+
+
+		<div id="article1" class="modal fade article" tabindex="-1" role="complementary">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">6 мифов о гироскутере</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<p>
+		      		Множество компаний, предлагающих купить гироскутер, присваивают им несуществующие преимущества, дабы выгоднее выглядеть перед конкурентами. Сегодня мы развеем самые распространенные мифы и расскажем, как есть на самом деле.
+		      	</p>
+		      	<h5 class="title">Миф номер 1: Водонепроницаемость, влагозащищенность.</h5>
+		      	<p>
+		      		На самом деле, огромное количество клиентов обращаются к нам с такими вопросами: «А будет ли гироскутер защищен от проникновения воды? А можно ли кататься по лужам, в дождь?». Вариаций этого вопроса великое множество. Но, на самом деле, кто бы и что вам не обещал, знайте: «Не один гироскутер не защищен от проникновения влаги во внутрь!».
+					Это действительно так, гироскутер не имеет, ни резиновых уплотнителей, ни герметичных швов, которые могли защитить бы его от воды. Не стоит забывать и о мотор-колесах. Они также ничем не защищены. Поэтому запомните: кататься по воде, в дождь и мыть под душем гироскутер НЕЛЬЗЯ!!!
+					И не забудьте прочитать инструкцию по использованию, которая идет в базовой комплектации с гироскутером.
+		      	</p>
+		      	<h5 class="title">Миф номер 2: Максимальная скорость 25 – 30 – 40 км/ч! Кто больше?</h5>
+		      	<p>
+		      		Самое интересное, что многие клиенты так сильно расстраиваются, когда мы говорим о том, что максимум, например для обычного гироскутера smart balance 10 дюймов «всего» 25 км/ч.
+					Давайте разберемся. Максимум, который смогли развить наши менеджеры на гироскутере Wmotion WM8, были 16 км/ч. И вовсе не потому, что гироскутер больше не смог, просто это уже очень быстро. Это то рубеж при котором пропадает уверенность и в общем можно понять почему. Вы мчите стоя на ногах в полный рост, на какой то электроштуковине, асфальт близко и падение будет фатальным, особенно если нет защиты. Вот и думаю, 25 км/ч много это или мало. А вы попробуйте, сколько сможете сами?
+					Что же касается технического вопроса в этом во всем. Конечно 30-40 км/ч это запредельные цифры, но 25 км/ч указанные производителем на коробке и в инструкции ко многим гироскутерам, похожи на правду.
+					В любом случае вы их не достигнете, а даже если и рискнете, не забудь те воспользоваться защитой.
+		      	</p>
+		      	<h5 class="title">Миф номер 3: Все гироскутеры одинаковы, зачем переплачивать?</h5>
+		      	<p>
+		      		Этот миф самый «острый» и все время режет слух, когда слышишь такое от клиента.
+					Многие клиенты при виде гироскутера smart balance 10 дюймов не видят отличий, например от Wmotion WM8 гироскутер на 10 дюймовых колесах. А вот разница в цене, заметна сразу. Гироскутер от компании Wmotion всегда будет дороже, более доступных смарт балансов.
+					Все очень просто, внешне пластик, форма конечно одинаковы. Различия начинают себя проявлять в покраске самого гироскутера. Как правило, окрас Wmotion качественный, без каких либо огрехов и сами краски достаточно насыщенные, тогда как окраска гироскутеров smart balance чаще всего страдает огрехами. Выражается это в небольших смазываниях принта, некоторой шероховатостью по корпусу и конечно тусклостью красок.   
+					Самая же большая разница скрыта от глаз. Платы гироскутеров различаются своим качеством. У Wmotion установлены платы Tao Tao, самые надежные на сегодня, тогда как у smart balance установлены китайские платы No Name. Аккумулятор в первом случае Samsung или LG, а smart balance может похвастаться только китайской батарейкой и в некоторых случаях аккумулятором Samsung, только вот гарантии что у вас именно Samsung не даст ни один продавец.
+					В любом случае выбирать вам, гарантия 1 год и там и там. Далее стоит задуматься, хочется ли вам знакомиться с мастерами сервисных центров по ремонту гироскутеров в вашем городе.
+		      	</p>
+		      	<h5 class="title">Миф номер 4: Возгорание аккумуляторных батарей</h5>
+		      	<p>
+		      		Ходит немало слухов о том, что у кого-то там загорелся аккумулятор в гироскутере и сгорел дом. Такую шокирующую вещь мы услышали от нашего клиента, и поверьте, такие вопросы тоже периодически задаются. 
+		      		Конечно, от такого не защищен никто, ведь в гироскутере, также как и во многих сотовых телефонах и смартфонах, установлен Li-ion аккумулятор и, если например, нанести сильный удар по аккумулятору и повредить его, то может произойти химическая реакция внутри батарейки.
+		      		И в таком случае, даже если у вас установлен аккумулятор Samsung, LG и любой другой может произойти неприятность. Поэтому еще раз напоминаю, стоит с осторожностью обращать с любой электроникой, где установлен Li-ion аккумулятор.
+					А еще совет от нас, правильно заряжайте и разряжайте такой аккумулятор, то есть разряжайте до конца. Как только гироскутер зарядится до конца, сразу снимайте с подзарядки, не оставляя его на ночь. Таким образом, аккумулятор вам послужит верой и правдой не один год.
+		      	</p>
+		      	<h5 class="title">Миф номер 5: Легко прокалываются колеса на гироскутере 10 дюймов.</h5>
+		      	<p>
+		      		На стандартных 10-ти дюймовых гироскутерах установлены накачиваемые колеса. Они имеют внутри покрышки камеру с автомобильным штуцером. Такие колеса накачиваются обычным автомобильным насосом. Проколоть такое колесо достаточно сложно, во-первых площадь поверхности самого колеса маленькая, а во –вторых покрышка достаточно твердая.Так что миф о том, что колесо 10-ти дюймового гироскутера легко проколоть, всего лишь миф и не больше.
+		      	</p>
+		      	<h5 class="title">Миф номер 6: 20 км. пробега на одной зарядке.</h5>
+				<p>
+					Давайте разбираться. Аккумулятор имеет емкость 4400 Mah, для сравнения в сотовых телефонах, например Iphone, устанавливаемый аккумулятор имеет емкость приблизительно 2000 Mah и хватает его при активной эксплуатации практически на день. Но, на iphone мы не катаемся и он не приводит в движение два мотор-колеса мощностью каждое 350 watt и тело наездника. А вес, кстати, может достигать 100 кг. Напрасно думать что под таким наездником гироскутер проедет хотя бы 15 км. Прибавьте сюда рельеф местности, по которому предстоит кататься и конечно скоростной режим. Все эти факторы напрямую влияют на километраж пробега, на одном заряде.
+				</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div id="article2" class="modal fade article" tabindex="-1" role="complementary">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">На что обратить внимание при покупке гироскутера</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<p>
+		      		Если вы решили приобрести гироскутер, то необходимо знать, как проверить его качество во избежание разочарований. Далее вы получите несколько ценных советов. 
+		      	</p>
+		      	<h5 class="title">Тщательный визуальный осмотр</h5>
+		      	<p>
+		      		В первую очередь обратите внимание на внешний вид гироскутера. Устройства от серьёзных производителей, размещенные на витринах, приковывают взгляд прохожих, выглядят стильно и солидно. У них отсутствуют потёки краски, царапины и сколы корпуса. Безупречный внешний вид гироскутера говорит о его хорошем качестве. И наоборот – внешне неопрятный скутер имеет такую же сборку.
+		      	</p>
+		      	<h5 class="title">Наличие гарантийного обслуживания</h5>
+		      	<p>
+		      		Убедитесь в наличии у продавца гарантийного талона на аппарат, а также выясните возможность обмена приобретенного  гироскутера на исправный в случае его поломки на период действия гарантии.
+		      	</p>
+		      	<h5 class="title">Технические характеристики устройства</h5>
+		      	<p>
+		      		Изучая понравившийся скутер, необходимо обратить внимание на его «сердце» – аккумулятор, а также на мощность приводного электродвигателя. Общеизвестно, что оптимальный показатель мощности должен  составлять 700 Вт.
+					Ёмкость аккумулятора должна выдерживать минимум двухчасовую эксплуатацию гироскутера. Аккумуляторы китайского производства, которыми с целью удешевления комплектуются устройства, считаются низкого качества и служат максимум два сезона. 
+
+		      	</p>
+		      	<h5 class="title">Ходовая часть</h5>
+		      	<p>
+		      		Если предполагаемое дорожное покрытие для езды будет низкого качества, то нельзя покупать модель с маленькими колёсами гироскутера - 6 дюймов. Езда на нём станет некомфортна, и будут неизбежны падения. Отдайте в таком случае предпочтение колёсам гироскутера - 8 дюймов (среднего размера) или большим камерным - 10 дюймов.
+					Гироскутеры известных производителей вселяют уверенность в длительной и безопасной на них езде. Чего нельзя сказать о дешёвых моделях – период беспроблемной езды на них очень короткий.
+
+		      	</p>
+				<p>Удачных вам покупок!</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div id="article3" class="modal fade article" tabindex="-1" role="complementary">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Какие бывают гироскутеры</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<p>
+		      		Линейка моделей гироскутеров, выпускаемых сегодня известными мировыми производителями, крайне разнообразна по дизайну и характеристикам. Одна из самых простых классификаций — по диаметру колес. Она во многом определяет назначение и возможности устройства. 
+		      	</p><br>
+		      	<p>
+		      		Так, самый маленький по габаритам <span class="title">гироскутер с 6-ти дюймовыми колесами</span> — используется для поездок по ровным покрытиям, для передвижения по большим по площади помещениям. Он самый маневренный, легкий, как по весу, так и в управлении. Но ради повышенной чувствительности к пожеланиям хозяина приходится жертвовать проходимостью.
+		      	</p>
+		      	<p>
+		      		<span class="title">Гироскутер на 10-ти дюймовых колесах</span> предназначен, напротив, для езды практически по любым поверхностям. Это «мини-внедорожник» — фантастическое транспортное средство для любителей активного отдыха. Но ведь на нем можно еще и проехать до 40 км! В зависимости от модели, уточним. А зарядка займет всего несколько часов, и подойдет любая розетка. Такой сигвей отличает конструкция высокой прочности, увеличенная площадка для ног. 
+		      	</p>
+		      	<p>
+		      		И, наконец, средний представитель семейства — <span class="title">гироскутер на 8-ми дюймовых колесах</span> . Для бездорожья он не предназначен, но проходимость у него лучше, чем у 6-ти дюймового. Кататься на нем по ровным поверхностям одно удовольствие. Он немного устойчивее младшего собрата, а управляется практически так же легко.  
+		      	</p>
+		      	<h5 class="title text-left">Для работы и отдыха</h5>
+		      	<p>
+		      		Отметим напоследок, что все модели гироскутеров, независимо от диаметра колес, характеризуются прочностью конструкции, простой управляемостью, безопасны при соблюдении правил эксплуатации, удобны в транспортировке и хранении. Они дарят необыкновенные возможности для отдыха и работы. Охранник на большом складском объекте на гироскутере сможет успешно выполнять свои должностные обязанности, не уставая. А любитель прогулок по паркам получит необыкновенное наслаждение, созерцая природу и неспешно передвигаясь на гироскутере.
+		      	</p>   
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div id="article4" class="modal fade article" tabindex="-1" role="complementary">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Основные неисправности и поломки гироскутеров</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<p>
+		      		Хотелось, чтобы наш гироскутер был всегда как новый и не имел никаких проблем. Это возможно лишь при одном условии – когда сигвей не используется. Но мы его покупали как раз для максимального применения, поэтому данный вариант нас явно не устраивает. Тогда стоит изучить виды поломок, которые могут возникнуть у каждого гироскутера. Итак, приступим.
+		      	</p><br>
+		      	<p>
+		      		Ремонт гироскутеров чаще всего происходит по вине самих пользователей. Наш сервисный центр по ремонту гироскутеров досконально знает все главные проблемы, возникающие у владельцев мини-сигвеев. Сложности появляются с платами и аккумуляторной батареей, чуть реже страдают рамы, и уж совсем редко из строя выходит мотор колеса. В отличие от самих колес, точнее камер, которые являются частой причиной проблемы гироскутера.
+		      	</p>
+		      	<p>
+		      		Можно заблаговременно предотвратить ремонт гироскутера, если произвести полную изоляцию внутренностей устройства от всех внешних напастей. В первую очередь будут в сохранности все <span class="title">платы</span>, которые достаточно уязвимы из-за их слабой защищенности. Поэтому влага, песок, пыль после общей изоляции не смогут теперь попасть внутрь гироскутера и навредить его работе.
+		      	</p>
+		      	<p>
+		      		Следующей проблемой, доставляющей массу хлопот, является <span class="title">аккумулятор</span>. При редком использовании или низком качестве изготовления батареи, она может разряжаться слишком быстро или гироскутер неожиданно выключается, а то и вовсе не включается. 
+		      	</p>
+		      	<p>
+		      		Далее идут проблемы, которые обеспечивают сами себе наездники – <span class="title">сломанные рамы</span> одна из них. Для предотвращения таких конфузов необходимо знать и помнить ограничение по весу для разных гироскутеров (30-100 кг). Также частой причиной сломанной рамы является неправильная эксплуатация устройства. Это когда райдер встает ближе к центру гироскутера, хотя в инструкции указанно, что ноги должны быть максимально раздвинуты. 
+		      	</p> 
+		      	<p>
+		      		Еще одна головная боль, которую создают себе сами пользователи – <span class="title">сломанный ограничитель в раме</span>. Причина сей поломки заключается в том, что наездник неверно встает и сходит с гироскутера. Часто задерживая одну ногу на платформе, сигвей прыгает просто как шальной. В этот момент две половинки как бы начинают раздалбливать друг друга, вследствие чего и происходит разрушение ограничителя в центре рамы. Явные признаки данной проблемы – свободный ход одной половинки гироскутера от другой, вращение и перевороты. Эксплуатацию такого устройства нужно срочно прекратить и обратиться в сервисный центр по ремонту гироскутеров. 
+		      	</p>
+		      	<p>
+		      		Что же касается <span class="title">камер и покрышек</span>, то здесь все достаточно просто – прокатились по острому предмету, и тут же получите прокол. Но обратите внимание, что стоит вам хоть чуть-чуть проехаться на спущенном колесе и можно очень быстро попрощаться с покрышкой. А все, потому что корд, который держит саму покрышку на диске, сразу портиться и вам понадобиться новое колесо. 
+		      	</p>
+		      	<p>
+		      		Конечно, никакая техника не вечна, но если бережно относиться к своему «верному другу», то наверняка ремонт гироскутера удастся отложить как можно дальше.
+		      	</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<!-- Bootstrap core JavaScript ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="js/script1.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+
+	</body>
+</html>

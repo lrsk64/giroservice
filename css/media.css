@@ -1,0 +1,15 @@
+@media screen and (max-width: 991px) {
+  .container {
+    max-width: 90% !important;
+  }
+
+  #main-title {
+    font-size: 2.5rem;
+  }
+
+  #main-contacts li {
+    font-size: 0.8rem;
+  }
+}
+
+/*# sourceMappingURL=media.css.map */

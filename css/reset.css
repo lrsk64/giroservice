@@ -1,0 +1,27 @@
+/* *{
+	margin: 0;
+	padding: 0;
+} */
+a {
+  text-decoration: none;
+  outline: none; }
+  a:hover, a:focus {
+    text-decoration: none;
+    outline: none; }
+
+ul {
+  padding-left: 0;
+  list-style: none; }
+
+p {
+  margin: 0; }
+
+hr {
+  border: none; }
+
+button {
+  outline: none; }
+  button:hover, button:focus {
+    outline: none; }
+
+/*# sourceMappingURL=reset.css.map */

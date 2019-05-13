@@ -1,0 +1,699 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,400,600,800&subset=cyrillic');
+@import "variables";
+@import "reset";
+@import "giro-font";
+@import "giro-font-ie7";
+
+
+
+@mixin position($pos: absolute, $top: auto, $bottom: auto, $right: auto, $left: auto){
+	position: $pos;
+	top: $top;
+	right: $right;
+	left: $left;
+}
+@mixin size($width: auto, $height: auto, $min-height: 1px, $margin: auto){
+	width: $width;
+	height: $height;
+	min-height: $min-height;
+	margin: $margin;
+
+}
+@mixin font($size: 1rem, $color: $main-font-color, $weight: normal, $family: 'Montserrat'){
+	font-size: $size;
+	color: $color;
+	font-weight: $weight;
+	font-family: $family;
+}
+
+
+body{
+	@include font();
+}
+a{
+	@include font($color: $main-font-color);
+	&:hover{
+		color: lighten($hightlight-color, $soft-changing*2);
+		text-decoration: none;
+	}
+}
+hr{
+	border: none;
+}
+form{
+	input, textarea, select{
+		@include size($width: 100%, $margin: 4% 0);
+		@include font($color: lighten($main-font-color, $soft-changing));
+		border: none;
+		border-bottom: 1px solid lighten($additional-font-color, $soft-changing*4);
+		&:focus{
+			outline: none;
+		}
+
+	}
+}
+@media screen and (max-width: 991px){
+	.container{
+		max-width: 90% !important;
+	}
+}
+.content-block{
+	@include size($margin: 10% auto);
+	position: relative;
+	*{
+		z-index: 1;
+	}
+	@media(max-width: 400px){
+		font-size: .9rem;
+	}
+}
+
+.link-block{
+	&:hover{
+		transition: all 0.2s;
+		.title{
+			color: lighten($hightlight-color, $soft-changing*2);
+		}
+		.arrow{
+			width: 45%;
+		}
+		div{
+			border-color: lighten($hightlight-color, $soft-changing*2) !important;
+		}
+	}
+}
+
+.title{
+	@include size($margin: 3% 0);	
+	@include font(1.2rem, $weight: bold);
+	text-align: center;
+	text-transform: uppercase;
+	@media(max-width: 576px){
+		font-size: 1rem;
+	}
+	@media(max-width: 400px){
+		font-size: 0.9rem;
+	}
+	&-section{
+		@include font (4rem, lighten($hightlight-color, $soft-changing), bold);
+		@extend .title;
+		@media(max-width: 991px){
+			font-size: 3.5rem;
+		}
+		@media(max-width: 768px){
+			font-size: 3rem;
+		}
+		@media(max-width: 576px){
+			font-size: 2.5rem;
+		}
+		@media(max-width: 400px){
+			font-size: 1.8rem;
+		}
+		@media(max-width: 285px){
+			font-size: 1.5rem;
+		}
+		&-block{
+			background: saturate(lighten($additional-font-color, $soft-changing*3.5), $soft-changing*2);
+		}
+	}
+	&-side{
+		@include font(3rem, $additional-font-color, bold);
+		@extend .title;
+		@media(max-width: 768px){
+				font-size: 2rem;
+			}
+		&-icon{
+			font-size: 8rem;
+			@media(max-width: 991px){
+				font-size: 6rem;
+			}
+			@media(max-width: 768px){
+				font-size: 4.5rem;
+			}
+		}
+		&-vertical{
+			writing-mode: vertical-lr;
+			-ms-writing-mode: vertical-lr;
+			@include size($margin: 0);
+			@extend .title-side;
+		}
+	}
+}
+
+
+.arrow{
+    @include size($width: 15%, $margin: 15% 0 3%);
+    border-top: 2px solid;
+    transform: translateZ(0);    
+    transition: width .3s ease;
+	&:after{
+    	@include position($top: -1px, $left: 100%);
+    	@include size($width: 8px, $height: 8px, $margin: 0 0 0 -6px);
+		content: "";
+	    border: 2px solid;
+	    border-bottom-width: 0;
+	    border-left-width: 0;
+	    transform: rotate(45deg);
+	    transform-origin: top right;
+	}
+}
+
+.hl{
+	@include font ($color: lighten($hightlight-color, $soft-changing), $weight: bold);
+	line-height: 1rem;
+}
+
+.block-hr{
+	@include size($width: 70%, $height: 1px);
+	background: $additional-font-color;
+}
+
+.carousel{
+	&-control-prev, &-control-next{
+		@include font (1.85rem, lighten($additional-font-color, $soft-changing*3));
+		&:hover{
+			color: lighten($additional-font-color, $soft-changing*2);
+		}
+		&:focus{
+			color: lighten($additional-font-color, $soft-changing*3);
+		}
+	}
+}
+
+.owl-prev, .owl-next{
+	@include font(1.85rem, lighten($additional-font-color, $soft-changing*3) !important);
+	&:hover{
+		@include font($color: lighten($additional-font-color, $soft-changing*2) !important);
+		background-color: transparent !important;
+	}
+}
+
+
+.bright-button{
+	@include size($margin: 50px 0);	
+	@include font ($color: $top-font-color);
+	background: $hightlight-color;
+	border-bottom: 3px solid darken($hightlight-color, $soft-changing);
+	&:hover{
+		background: lighten($hightlight-color, $soft-changing);
+		border-bottom: 3px solid $hightlight-color;
+		color: $top-font-color;
+	}
+}
+.form-button{
+	@include size($width: 40%);
+}
+
+
+
+.modal-header{
+		.close{ 
+			margin: 0;
+			padding: 0; 
+		}
+		.modal-title{
+			@extend .title;
+			@include size($margin: 0 auto);
+		}
+	}
+
+.contact-form{
+	.modal-header{
+		background: lighten($hightlight-color, $soft-changing);
+		.modal-title{ color: $top-font-color; }
+	}
+}
+
+.price-modal{
+	.modal-dialog{ 
+		max-width: 60% !important;
+		@media(max-width: 768px){
+			max-width: 90% !important;
+			margin: 0 auto;
+		}
+	}
+	.modal-body{
+		table{
+			width: 100%;
+			tr:nth-child(even){
+				background: transparentize(lighten($additional-font-color, $soft-changing*2), 0.8);
+				border-bottom: 1px solid lighten($additional-font-color, $soft-changing);
+			}
+		}
+	}
+	.modal-footer{
+		a[role=button]{ margin: 0 auto; }
+	}	
+}
+
+.article{
+	.modal-dialog{ 
+		max-width: 80% !important;
+		@media(max-width: 768px){
+			max-width: 90% !important;
+			margin: 0 auto;
+		} 
+	}
+}
+
+#news{
+    border: 3px solid lighten($additional-font-color, $soft-changing*4);
+    .carousel-item{
+		padding: 5% 15%;
+	    .title{
+		    @media(max-width: 768px){
+		    	font-size: 1rem;
+		    }
+		    @media(max-width: 576px){
+		    	font-size: .9rem;
+		    }
+		    @media(max-width: 576px){
+		    	font-size: .8rem;
+		    }
+		}
+    }
+}
+
+/*main section*/
+#main{
+	@include size($height: 100vh, $min-height: 600px);
+	background: {
+		image: url('../images/bg6.jpg');
+		size: cover;
+		repeat: no-repeat;
+	}   
+	@include font ($color: $top-font-color);
+	&:before{
+		@include position ($right: 0);
+		@include size($width: 100%, $height: 100vh, $min-height: 600px);
+		content: "";
+		background: transparentize(lighten($shaddow-color, $soft-changing*3), 0.2);  
+	}
+	&-nav{
+		@include size($width: 100%, $height: 60px, $margin: 0 0 20px);
+		padding: 0;
+		background-color: transparentize($shaddow-color, 0.6);
+		&-list{
+			@media(max-width: 992px){
+				@include size($margin: 15px 0 0);
+				padding: 20px;
+				z-index: 1;
+				background: lighten($shaddow-color, $soft-changing*3);
+			}
+			.nav-link {
+				@include font ($color: $top-font-color);
+				padding-left: 20px;
+				text-transform: uppercase;
+				@media(max-width: 1200px){
+					font-size: .9rem;
+				}
+				&:before{
+					@include size($width: 100%, $height: 3px);
+					display: block;
+					content: "";
+					background: $hightlight-color;
+					transform: translateY(-18px) scale(0);
+					transition: all 0.3s;
+				}
+				&:hover{
+					@media(max-width: 992px){
+						color: lighten($hightlight-color, $soft-changing);
+					}
+					&:before{
+						@media(min-width: 992px){
+							transform: translateY(-18px) scale(1);
+						}
+					}
+				}
+			}
+			.active{
+				@media(max-width: 992px){
+					color: lighten($hightlight-color, $soft-changing);
+				}
+				&:before{
+					@media(min-width: 992px){
+						transform: translateY(-18px) scale(1);
+					}
+				}
+			}
+			&-toggler{
+				@include position ($top: 10px, $right: 20px);
+				@include font (2rem, $top-font-color);
+				border: none;
+			}
+		}
+
+		.navbar-brand{
+			@include position ($pos: relative, $top: -7px, $left: 15px);
+			margin: 0;
+			padding: 8px 15px;
+			background: $hightlight-color;
+			border-radius: 0 0 5px 5px;
+			@include font (1.3rem, $top-font-color, 600);
+			&:hover{
+				background: lighten($hightlight-color, $soft-changing);
+			}
+			img{
+				max-width: 50px;
+				margin-right: 5px;
+				vertical-align: bottom;
+			}
+		}
+	}
+	&-title{
+		@include font (2.35rem, $top-font-color, bold);
+		@media screen and (max-width: 991px){
+			font-size: 2rem;
+		}
+		@media screen and (max-width: 768px){
+			font-size: 1.5rem;
+		}
+		@media screen and (max-width: 370px){
+			font-size: 1.2rem;
+		}
+		@media screen and (max-width: 285px){
+			font-size: 1rem;
+		}
+		&-sub{
+			@media screen and (max-width: 991px){
+				font-size: 1.4rem;
+			}
+			@media screen and (max-width: 768px){
+				font-size: 1rem;
+			}
+			@media screen and (max-width: 370px){
+				font-size: .9rem;
+			}
+		}
+	}
+	&-contacts{
+		padding-top: 40px;
+		@media(max-width: 576px){
+			position: absolute;
+			left: 100%;
+			display: none;
+			z-index: 1000;
+			height: 450px;
+			overflow: hidden;
+			background: #363636;
+		}
+
+		&-list{
+			@media(max-width: 576px){
+				position: absolute;
+				left: 100%;
+				top: 10%;
+			}
+
+			li{
+				margin-bottom: 30px;
+				transform: translate(0, 0);
+				line-height: 1.5rem;
+				@include font(0.9rem, $top-font-color);
+					
+				@media screen and (max-width: 768px){
+					margin-bottom: 30px;
+					font-size: .8rem;
+				}
+				@media(max-width: 576px){
+				}
+
+				i{
+					margin-right: 5%;
+					@include font (1.5rem, $top-font-color);
+					@media screen and (max-width: 768px){
+						font-size: 1.2rem;
+					}
+				}
+		
+			}
+		}
+		&-toggler{
+			position: absolute;
+			right: 0;
+			top: 150px;
+			height: 200px;
+			padding: 15px 10px;
+			justify-content: space-around;
+			z-index: 2000;
+			background: lighten($shaddow-color, $soft-changing*2.5);
+			writing-mode: vertical-lr;
+			-ms-writing-mode: vertical-lr;
+			text-transform: uppercase;
+			font-weight: 600;
+			@media(max-width: 450px){
+				padding: 15px 5px;
+			}
+			@media(max-width: 330px){
+				padding: 15px 0;
+			}
+			#chevron{
+				margin-top: 15px;
+				transition: all 0.5s;
+			}
+		}
+	}
+	
+	&-button{
+		text-align: center;
+		a{
+			font-size: 1.2rem;
+			font-weight: 600;
+		}
+	}
+}
+/*end main section*/
+
+#diagnostics{
+	.title-side{
+		&-vertical{
+			@include position($top:-7%, $right: 8%);
+			@media(max-width: 768px){
+				top: -4%;
+			} 
+		}
+		&-icon{
+			@include position($top: 12%, $right: 30%);
+		}
+	}
+}
+
+#repair{
+	.title-side{
+		&-vertical{
+			@include position($top: -9%, $left: 8%);
+			transform: rotateZ(-180deg);
+			@media(max-width: 768px){
+				top: -4%;
+			}	
+		} 
+		&-icon{
+			@include position($top: 12%, $left: 30%);
+		}
+	}		
+}
+.feautures-item{
+	a{
+		padding: 7% 0;
+		display: block;
+		transition: all 0.2s;
+		&:hover{
+			transform: scale(1.1);
+			transition: all 0.2s;
+		}
+		@media (max-width: 994px){
+			padding: 1% 0;
+		}
+		@media(max-width: 450px){
+			font-size: .9rem;
+		}
+	}
+}
+.gallery-item{
+	padding-bottom: 3%;
+	text-align: center;
+	transition: all 0.2s;
+	&:hover{
+		transform: scale(1.1);
+	}
+}
+.price-item{
+	.card{	
+		@include size($min-height: 380px, $margin: 5% auto);
+		max-width: 700px;
+		border: 3px solid lighten($additional-font-color, $soft-changing*4);
+		border-radius: 6px;
+		@media(max-width: 991px){
+			min-height: 250px;
+			margin: 2% auto;
+		}
+		@media(max-width: 450px){
+			font-size: .8rem;
+		}
+		&-header{
+			background: transparentize(lighten($additional-font-color, $soft-changing*4), 0.9);
+		}
+		&-text{
+			margin: 5% 0;
+			@media(max-width: 991px){
+				margin-top: 1%;
+			}
+		}
+	}
+	.arrow{
+		@media(max-width: 991px){
+			margin-top: 1%;
+		}
+	}
+	
+}
+.timeline{
+	position: relative;
+	&:after{
+		content: '';
+		position: absolute;
+		width: 6px;
+		background-color: lighten($additional-font-color, $soft-changing*4);
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		margin-left: -3px;
+		@media screen and (max-width: 700px){
+			left: 31px;
+		}
+	}
+	&-container{
+		padding: 10px 40px;
+		position: relative;
+		width: 50%;
+		@media screen and (max-width: 700px){
+			width: 100%;
+			padding: 10px;
+			padding-left: 55px;
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			right: -13px;
+			top: 30px;
+			width: 25px;
+			height: 25px;
+			background-color: lighten($additional-font-color, $soft-changing*2);
+			border-radius: 50%;
+			z-index: 1;
+		}
+	}
+	.left {
+	  left: 0;
+	  &:after{
+	  	@media screen and (max-width: 700px){
+			left: 18px;
+		}
+	  }
+	}
+
+	.right {
+	  left: 50%;
+	  @media screen and (max-width: 700px){
+			left: 0;
+		}
+	  &:after{
+	  	left: -13px;
+	  	@media screen and (max-width: 700px){
+			left: 18px;
+		}
+	  }
+	}
+
+	&-content {
+		position: relative;
+		padding: 20px 30px;
+		background-color: $top-font-color;
+		border: 3px solid lighten($additional-font-color, $soft-changing*3);
+		border-radius: 6px;
+		@media(max-width: 400px){
+			font-size: .8rem;
+			padding: 20px 10px;
+		}
+	}
+}    
+#reviews{
+	@media(min-width: 768px){
+		min-height: 500px;	
+	}
+	.title-side{
+		@include position($pos: relative, $top: 7%, $right: 35%);		
+		&-icon{
+			@include position($top: 22%, $right: 8%);
+		}
+	}
+	&-carousel{
+		@include size($margin: 15% 0 0);
+		.carousel{
+			&-inner{
+				color: $main-font-color;	
+			}
+			&-item{
+				@include size($width: 60%, $margin: 0 auto);
+				font-size: 1.3rem;
+				@media(max-width: 576px){
+					font-size: 1rem;
+				}
+				@media(max-width: 400px){
+					font-size: 0.9rem;
+				}
+				.quote-open, .quote-close{
+					@include font (2rem, $color: lighten($additional-font-color, $soft-changing*3));
+				}
+				.quote-close{					
+					@include position ($pos: relative, $left: 100%);
+				}
+			}
+		}
+	}
+}
+
+#blog{
+	.title-side{
+		@include position($pos: relative, $top: 7%, $left: 45%);
+		&-icon{
+			@include position($top: 24%, $left: 8%);
+			@media(max-width: 768px){
+				top: 18%;
+			}
+		}
+	}
+	&-posts{
+		position: relative;
+		.blog-item{
+			@include size($margin: 15% auto);
+			padding: 15% 15% 10%;
+			max-width: 300px;
+			border: 3px solid lighten($additional-font-color, $soft-changing*4);
+			@media(min-width: 768px){
+				min-height: 300px;
+				padding-top: 20%;
+			}
+		}
+	}
+}
+
+
+#contact-info{
+	background: url('../images/map.png');
+	text-align: center;	
+	@media(max-width: 576px){
+		font-size: .8rem;
+	}
+	#map{
+		@include size($margin: 1% 0 0);
+	}
+}
+
+
+
+
+
+
+
+
